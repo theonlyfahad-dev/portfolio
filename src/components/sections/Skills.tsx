@@ -36,7 +36,7 @@ export function Skills() {
               key={category.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               className="glass relative overflow-hidden p-8 rounded-sm border border-border/10 hover:border-primary/30 transition-all duration-500 group hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10"
             >

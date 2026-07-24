@@ -96,7 +96,7 @@ export function Contact() {
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-20px" }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative lg:h-[800px] aspect-[3/4] lg:aspect-auto rounded-sm overflow-hidden group"
           >
