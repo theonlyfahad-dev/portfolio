@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { resumeData } from "@/data/resume";
 import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink, Code2 } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 const GithubIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -11,121 +11,96 @@ const GithubIcon = ({ className }: { className?: string }) => (
     <path d="M9 18c-4.51 2-5-2-7-2" />
   </svg>
 );
-import Image from "next/image";
+
+// Generic Mock Browser Graphic component for project cards
+const MockBrowser = ({ title }: { title: string }) => (
+  <div className="w-full aspect-[4/3] bg-muted/30 rounded-t-lg border-b border-border/50 p-4 flex flex-col group-hover:bg-muted/50 transition-colors">
+    <div className="flex gap-1.5 mb-4">
+      <div className="w-2 h-2 rounded-full bg-border/80" />
+      <div className="w-2 h-2 rounded-full bg-border/80" />
+      <div className="w-2 h-2 rounded-full bg-border/80" />
+    </div>
+    <div className="flex-1 bg-background rounded-md border border-border/50 p-4 shadow-sm flex flex-col gap-3">
+      <div className="w-1/3 h-4 bg-muted rounded-sm mb-2" />
+      {[...Array(4)].map((_, i) => (
+        <div key={i} className="w-full h-2 bg-muted/60 rounded-full" />
+      ))}
+      <div className="w-2/3 h-2 bg-muted/60 rounded-full" />
+    </div>
+  </div>
+);
 
 export function Projects() {
   return (
-    <section id="projects" className="py-32 relative">
-      {/* Cinematic Background for Projects Section */}
-      <div className="absolute inset-0 -z-20 w-full h-full opacity-20 pointer-events-none">
-        <Image
-          src="/images/projects.jpg"
-          alt="Projects Background"
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover object-center mix-blend-luminosity grayscale"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
-      </div>
-
+    <section id="projects" className="py-24 relative bg-background">
       <div className="container mx-auto px-6 lg:px-12 relative z-10 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-20px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-20"
+          className="mb-16"
         >
-          <span className="text-primary font-mono text-sm tracking-widest uppercase mb-4 block">
-            Portfolio
+          <span className="text-primary font-mono text-xs tracking-widest uppercase mb-4 block font-semibold">
+            04 / PROJECTS
           </span>
-          <h2 className="text-4xl sm:text-6xl font-bold tracking-tight">
-            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">Works.</span>
-          </h2>
+          <div className="flex justify-between items-end">
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
+              Things I've Built
+            </h2>
+            <a href="#" className="hidden sm:flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group">
+              View All Projects <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
         </motion.div>
 
-        <div className="flex flex-col gap-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {resumeData.projects.map((project, index) => (
             <motion.div 
               key={project.title}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 1, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative"
+              transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="group relative h-full"
             >
-              {/* Project Card */}
-              <Card className="glass border-border/20 overflow-hidden transition-all duration-700 hover:border-primary/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 relative">
-                {/* Subtle Hover Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              <Card className="h-full flex flex-col bg-card border-border hover:border-foreground/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg relative overflow-hidden rounded-xl">
                 
-                <CardContent className="relative p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row gap-12 z-10">
+                <MockBrowser title={project.title} />
+                
+                <CardContent className="p-6 flex flex-col flex-1">
                   
-                  {/* Left Column: Info */}
-                  <div className="flex-1 flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center gap-3 mb-6 text-primary">
-                        <Code2 className="h-6 w-6 group-hover:rotate-12 transition-transform duration-500" />
-                        <h3 className="text-2xl sm:text-4xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">{project.title}</h3>
-                      </div>
-                      
-                      <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                        {project.description}
-                      </p>
-
-                      <div className="mb-8">
-                        <h4 className="text-sm uppercase tracking-widest font-mono text-muted-foreground mb-4">Key Features</h4>
-                        <ul className="space-y-3">
-                          {project.features.map((feature, i) => (
-                            <li key={i} className="flex items-start gap-3 text-muted-foreground/90">
-                              <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0 group-hover:scale-150 transition-transform duration-500" />
-                              <span className="leading-relaxed">{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                    
-                    {/* Action Links */}
-                    <div className="flex gap-4 mt-8 pt-8 border-t border-border/50">
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-xl font-bold tracking-tight text-foreground leading-tight">
+                      {project.title}
+                    </h3>
+                    <div className="flex gap-3 text-muted-foreground shrink-0 ml-4">
                       {project.githubUrl && (
-                        <a 
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="flex items-center gap-2 text-sm uppercase tracking-widest font-mono hover:text-primary transition-colors"
-                          aria-label="GitHub Repository"
-                        >
-                          <GithubIcon className="h-4 w-4" /> Code
+                        <a href={project.githubUrl} target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">
+                          <GithubIcon className="h-5 w-5" />
                         </a>
                       )}
                       {project.liveUrl && (
-                        <a 
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="flex items-center gap-2 text-sm uppercase tracking-widest font-mono hover:text-primary transition-colors"
-                          aria-label="Live Demo"
-                        >
-                          <ExternalLink className="h-4 w-4" /> Live Demo
+                        <a href={project.liveUrl} target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">
+                          <ExternalLink className="h-5 w-5" />
                         </a>
                       )}
                     </div>
                   </div>
+                  
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">
+                    {project.description}
+                  </p>
 
-                  {/* Right Column: Tech Stack Visualization */}
-                  <div className="lg:w-[40%] bg-black/40 rounded-sm border border-white/5 p-8 flex flex-col justify-center group-hover:bg-black/60 group-hover:border-primary/20 transition-all duration-700">
-                    <h4 className="text-sm uppercase tracking-widest font-mono text-muted-foreground mb-6 text-center">Tech Stack</h4>
-                    <div className="flex flex-wrap gap-3 justify-center">
-                      {project.technologies.map((tech) => (
-                        <span 
-                          key={tech} 
-                          className="px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary-foreground text-sm font-medium hover:bg-primary/20 hover:border-primary/50 transition-colors cursor-default"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {project.technologies.map((tech) => (
+                      <span 
+                        key={tech} 
+                        className="px-2.5 py-1 rounded bg-secondary text-secondary-foreground text-xs font-medium cursor-default"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
 
                 </CardContent>

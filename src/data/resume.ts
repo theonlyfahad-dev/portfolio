@@ -46,7 +46,17 @@ export interface Certification {
   issuer: string;
   date?: string;
   url?: string;
+  image?: string;
   details?: string[];
+}
+
+export interface Achievement {
+  title: string;
+  organization: string;
+  date: string;
+  description: string;
+  image: string;
+  curriculum?: string[];
 }
 
 export interface ResumeData {
@@ -56,6 +66,7 @@ export interface ResumeData {
   experience: Experience[];
   projects: Project[];
   certifications: Certification[];
+  achievements: Achievement[];
 }
 
 export const resumeData: ResumeData = {
@@ -117,22 +128,25 @@ export const resumeData: ResumeData = {
   ],
   projects: [
     {
-      title: "ResumeIQ – AI Resume Analyzer",
-      description: "Built an AI-powered resume analyzer that evaluates ATS compatibility, extracts skills, and generates personalized feedback.",
-      technologies: ["Python", "FastAPI", "SQLite", "HTML", "CSS", "REST APIs"],
+      title: "Smart Campus Scheduling System",
+      description: "A production-ready Smart Campus Scheduling System built to streamline timetable management with an Excel-like workspace, automated generation, and live conflict detection.",
+      technologies: ["Next.js", "NestJS", "TypeScript", "Prisma", "PostgreSQL", "Supabase", "JWT", "Tailwind CSS", "shadcn/ui", "Vercel"],
       features: [
-        "Evaluates ATS compatibility, extracts skills, and generates personalized feedback.",
-        "Integrated resume parsing, keyword analysis, and AI-powered recommendations for resume optimization."
+        "Automated timetable generation",
+        "Excel-like drag & drop editing",
+        "Live conflict detection & suggestions",
+        "Student portal & version history"
       ],
       githubUrl: "https://github.com/theonlyfahad-dev",
     },
     {
       title: "DreamRoleAI – Personalized Career Roadmap Generator",
-      description: "Built a career guidance platform that analyzes resumes and generates personalized career roadmaps.",
+      description: "A career guidance platform that generates personalized roadmaps, offering intelligent resume analysis and comprehensive career skill-gap identification.",
       technologies: ["Python", "FastAPI", "HTML", "CSS", "JavaScript", "REST APIs"],
       features: [
-        "Analyzes resumes and generates personalized career roadmaps.",
-        "Designed skill-gap analysis and integrated AI-powered recommendations for target roles."
+        "AI-powered resume analysis",
+        "Personalized learning roadmaps",
+        "Skill-gap identification & recommendations"
       ],
       githubUrl: "https://github.com/theonlyfahad-dev",
     },
@@ -142,6 +156,7 @@ export const resumeData: ResumeData = {
       name: "Generative AI Foundation Program",
       issuer: "UpGrad × Microsoft",
       date: "July 2025",
+      image: "/images/certificates/generative-ai.jpg",
       details: [
         "Mastering Generative AI Foundations",
         "AI for Research and Content Creation",
@@ -153,6 +168,7 @@ export const resumeData: ResumeData = {
       name: "Career Essentials in Software Development",
       issuer: "Microsoft × LinkedIn Learning",
       date: "July 2026",
+      image: "/images/certificates/career-essentials.jpg",
       details: [
         "Core Programming Fundamentals",
         "Software Development Life Cycle (SDLC)",
@@ -163,6 +179,7 @@ export const resumeData: ResumeData = {
       name: "LLM for Young Developers (Foundational)",
       issuer: "Meta × NASSCOM FutureSkills Prime",
       date: "Feb 2026",
+      image: "/images/certificates/llm-foundational.jpg",
       details: [
         "Introduction to Open-Source LLMs (LLaMA)",
         "Transformer Architecture Fundamentals",
@@ -170,5 +187,46 @@ export const resumeData: ResumeData = {
         "Introduction to Agentic AI Workflows"
       ]
     },
+    {
+      name: "Digital Skills: Artificial Intelligence",
+      issuer: "Accenture × FutureLearn",
+      date: "Feb 2026",
+      image: "/images/certificates/digital-skills.jpg",
+      details: [
+        "Fundamentals of Artificial Intelligence",
+        "AI applications in business and the workplace",
+        "Machine Learning basics",
+        "Ethical and responsible AI",
+        "Human–AI collaboration and future career opportunities"
+      ]
+    },
+  ],
+  achievements: [
+    {
+      title: "Graph Theory Programming Camp",
+      organization: "AlgoUniversity",
+      date: "2026",
+      description: "Conquered 17 advanced graph problems under the mentorship of Codeforces Master, Manas Kumar Verma.",
+      image: "/images/achievements/graph-theory.jpg",
+      curriculum: [
+        "Graph Traversals (BFS, DFS)",
+        "Shortest Paths (Dijkstra, Bellman-Ford)",
+        "Minimum Spanning Trees",
+        "Advanced Graph Algorithms"
+      ]
+    },
+    {
+      title: "GenAI Powered Data Analytics Job Simulation",
+      organization: "Forage × TATA",
+      date: "May 2026",
+      description: "Completed practical tasks in exploratory data analysis and risk profiling using GenAI.",
+      image: "/images/achievements/genai-analytics.jpg",
+      curriculum: [
+        "Exploratory data analysis and risk profiling",
+        "Predicting delinquency with AI",
+        "Business report and data storytelling",
+        "Implementing an AI-driven collections strategy"
+      ]
+    }
   ]
 };

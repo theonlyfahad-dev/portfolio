@@ -6,20 +6,20 @@ import Image from "next/image";
 
 export function Experience() {
   return (
-    <section id="experience" className="py-32 relative overflow-hidden bg-black/50">
+    <section id="experience" className="py-24 relative overflow-hidden bg-background">
       
-      <div className="container mx-auto px-6 lg:px-12 relative z-10 max-w-6xl">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
           
-          {/* Left Column: Image & Title */}
+          {/* Left Column: Title & Image */}
           <div className="lg:col-span-5 relative">
             <div className="sticky top-32">
-              <span className="text-primary font-mono text-sm tracking-widest uppercase mb-4 block">
-                Career
+              <span className="text-primary font-mono text-xs tracking-widest uppercase font-semibold mb-4 block">
+                02 / EXPERIENCE
               </span>
-              <h2 className="text-4xl sm:text-6xl font-bold tracking-tight mb-12">
+              <h2 className="text-5xl sm:text-6xl font-bold tracking-tight mb-12 text-foreground leading-[1.1]">
                 Professional <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">Experience.</span>
+                <span className="text-primary">Experience.</span>
               </h2>
               
               <motion.div 
@@ -27,23 +27,22 @@ export function Experience() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="relative aspect-[3/4] w-full max-w-md mx-auto lg:mx-0 rounded-sm overflow-hidden"
+                className="relative aspect-[3/4] w-full max-w-md mx-auto lg:mx-0 overflow-hidden mix-blend-multiply"
               >
-                <div className="absolute inset-0 bg-primary/20 mix-blend-overlay z-10 hover:bg-transparent transition-colors duration-700" />
                 <Image
-                  src="/images/experience-v3.jpg"
-                  alt="Experience Environment"
+                  src="/images/experience_portrait.jpg"
+                  alt="Experience"
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover grayscale-[30%] hover:scale-105 transition-transform duration-1000 ease-out"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
                 />
               </motion.div>
             </div>
           </div>
           
           {/* Right Column: Timeline */}
-          <div className="lg:col-span-7">
-            <div className="relative border-l border-border/50 pl-8 ml-4 space-y-20 py-8">
+          <div className="lg:col-span-7 py-8">
+            <div className="relative border-l border-border pl-8 ml-2 sm:ml-4 space-y-16">
               {resumeData.experience.map((exp, index) => (
                 <motion.div
                   key={index}
@@ -53,24 +52,24 @@ export function Experience() {
                   transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   className="relative group"
                 >
-                  {/* Timeline Dot */}
-                  <span className="absolute -left-[41px] top-1 h-4 w-4 rounded-full border-2 border-primary bg-background group-hover:scale-150 group-hover:bg-primary transition-all duration-300" />
+                  {/* Minimal Timeline Dot */}
+                  <span className="absolute -left-[37px] top-1.5 h-2 w-2 rounded-full bg-border group-hover:scale-[2] group-hover:bg-primary transition-all duration-300" />
                   
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
-                    <span className="text-sm font-mono tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full uppercase">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-3">
+                    <span className="text-xs font-mono tracking-widest text-primary uppercase font-medium">
                       {exp.period}
                     </span>
                   </div>
                   
-                  <h3 className="text-2xl sm:text-3xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-2xl sm:text-3xl font-bold mb-1 text-foreground transition-colors duration-300">
                     {exp.title}
                   </h3>
                   
-                  <p className="text-xl text-muted-foreground/80 font-medium mb-6">
+                  <p className="text-lg text-muted-foreground font-medium mb-4">
                     {exp.company}
                   </p>
                   
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-base text-muted-foreground leading-relaxed max-w-2xl">
                     {exp.description}
                   </p>
                 </motion.div>
