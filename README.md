@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Developer Portfolio
 
-## Getting Started
+A premium, highly interactive software engineer portfolio built with a modern web stack. It features a sleek "Premium Light Editorial" theme, dynamic 3D card flips, masonry layouts, and smooth framer-motion animations.
 
-First, run the development server:
+## Preview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Hero & About Sections
+![Hero Section](/images/preview-1.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Experience & Timeline
+![Experience Section](/images/preview-2.png)
+![Experience Details](/images/preview-3.png)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Skills & Tech Arsenal
+![Skills Section](/images/preview-4.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Certifications & Achievements
+![Certifications Section](/images/preview-5.png)
 
-## Learn More
+## Technologies Used
 
-To learn more about Next.js, take a look at the following resources:
+* **Framework**: Next.js (App Router)
+* **Library**: React 19
+* **Styling**: Tailwind CSS
+* **Animations**: Framer Motion
+* **Icons**: Lucide React
+* **Language**: TypeScript
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## How to Use It
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+If you want to use this portfolio template for yourself, follow these steps:
 
-## Deploy on Vercel
+1. **Clone the Repository**
+   ```bash
+   git clone <your-repo-url>
+   cd portfolio
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Install Dependencies**
+   Make sure you have Node.js installed, then run:
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Update Your Data**
+   All the content (your name, experience, projects, skills, etc.) is centralized in one file.
+   Open `src/data/resume.ts` and replace the placeholder data with your own information.
+
+4. **Add Your Images**
+   Replace the images in the `public/images/` folder with your own (e.g., `hero_portrait_whitebg.jpg`, project screenshots, and certificate images). Ensure your certificate images match the paths you set in `resume.ts`.
+
+5. **Run the Development Server**
+   Start the local server to see your changes in real-time:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+6. **Deploy**
+   The easiest way to deploy this portfolio is by pushing your code to GitHub and importing the repository into [Vercel](https://vercel.com).
